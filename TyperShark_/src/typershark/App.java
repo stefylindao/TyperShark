@@ -25,9 +25,7 @@ public class App extends Application {
         mediaPlayer.play();
 	}
 	
-	//Esta es una prueba para el repositorio Stefany
-	//Primer Comentario
-	//Segundo Comntario
+	//Esta es una prueba para el repositorio Stefany .....
 	
 	@Override
 	/*public void start(Stage stage) {
