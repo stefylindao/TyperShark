@@ -15,7 +15,7 @@ import javafx.scene.layout.Pane;
 public class PaneOrganizer {
 	
 	//Primer comentario
-	//...
+	//.......
 	
 	private Pane root;
 	private String img = "Images/oceano3.jpg";
