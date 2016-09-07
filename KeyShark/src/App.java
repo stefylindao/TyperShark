@@ -30,7 +30,7 @@ public class App extends Application{
 	
 	private Image icon = new Image(getClass().getResourceAsStream("ic.png"));
 	
-	
+	//Comentario de Stefany Lindao
 	@Override
 	/**
 	 * Método que inicia el escenario con el PaneOrganizer del menú del juego.
@@ -52,7 +52,7 @@ public class App extends Application{
 	public static void main (String[] args) {
 		Application.launch(args);
 	}
-	///ggggggggggghhhhhhhgggggggggggggggggggggggggggggggggggg
+	
 	
 	private static class SceneHandler implements EventHandler<ActionEvent> {
 		@Override
@@ -86,6 +86,12 @@ public class App extends Application{
 					Scene escenario = new Scene(org.getRaiz(),500,450);
 					mainStage.setResizable(false);
 					mainStage.setScene(escenario);
+				} else if (((Button) event.getSource()).getText() == "Cargar") {
+					OrganizadorCargarJuego org = new OrganizadorCargarJuego(new SceneHandler());
+					Scene escenario = new Scene(org.getRaiz(),600,500);
+					mainStage.setResizable(false);
+					mainStage.setScene(escenario);
+					
 				} else {
 					Sonido.stop();
 					OrganizadorMenu org = new OrganizadorMenu(new SceneHandler());
