@@ -52,7 +52,7 @@ public class App extends Application{
 	public static void main (String[] args) {
 		Application.launch(args);
 	}
-	///ggggggggggggggggggggggggggggggggggggggggggggggg
+	///ggggggggggghhhhhhhgggggggggggggggggggggggggggggggggggg
 	
 	private static class SceneHandler implements EventHandler<ActionEvent> {
 		@Override
