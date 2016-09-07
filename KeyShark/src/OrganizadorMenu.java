@@ -39,6 +39,7 @@ public class OrganizadorMenu {
 	private BorderPane raiz;
 	private HBox contenedorBotones;
 	private Button botonJugar;
+	private Button botonCargar;
 	private Button botonAcercaDe;
 	private Button botonPuntaje;
 	private Button botonSalir;
@@ -68,6 +69,12 @@ public class OrganizadorMenu {
 		botonJugar.setOnAction(handler);
 		botonJugar.setBackground(null);
 		
+		botonCargar = new Button("Cargar");
+		botonCargar.setFont(new Font("Comic Sans MS", 15.0));
+		botonCargar.setTextFill(Color.WHITE);
+		botonCargar.setOnAction(handler);
+		botonCargar.setBackground(null);
+		
 		botonAcercaDe = new Button("Acerca De");
 		botonAcercaDe.setFont(new Font("Comic Sans MS", 15.0));
 		botonAcercaDe.setTextFill(Color.WHITE);
@@ -92,7 +99,7 @@ public class OrganizadorMenu {
 		           + "-fx-background-position: center center; "
 		           + "-fx-background-repeat: stretch;");
 		
-		contenedorBotones.getChildren().addAll(botonJugar, botonAcercaDe, botonPuntaje, botonSalir);
+		contenedorBotones.getChildren().addAll(botonJugar, botonCargar, botonAcercaDe, botonPuntaje, botonSalir);
 		contenedorBotones.setAlignment(Pos.CENTER);
 		contenedorBotones.setPadding(new Insets(10, 10, 10, 10));
 		contenedorBotones.setSpacing(10);

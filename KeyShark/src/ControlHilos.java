@@ -36,6 +36,7 @@ public class ControlHilos implements Runnable {
 	public static Thread hilo5;
 	private Tiburon[] tiburones;
 	private Pirana[] piranas;
+	private Pulpo[] pulpos;
 	private TiburonNegro[] tiburonesNegros;
 	
 	/**
@@ -47,13 +48,14 @@ public class ControlHilos implements Runnable {
 	 * @param: piranas
 	 * @param: tiburonesNegros
 	 */
-	public ControlHilos(Buceador buzo, Tiburon[] tiburones, Pirana[] piranas, TiburonNegro[] tiburonesNegros) {
+	public ControlHilos(Buceador buzo, Tiburon[] tiburones, Pirana[] piranas, TiburonNegro[] tiburonesNegros, Pulpo[] pulpos) {
 		jugando = true;
 		
 		this.setBuzo(buzo);
 		this.tiburones = tiburones;
 		this.piranas = piranas;
 		this.tiburonesNegros = tiburonesNegros;
+		this.pulpos = pulpos;
 		
 		hiloBuzo = new Thread(buzo);
 		hiloBuzo.start();
@@ -131,7 +133,7 @@ public class ControlHilos implements Runnable {
 	 */
 	private Objeto elegirObjeto(int x, int y) throws FileNotFoundException, IOException {
 		while (true) {
-			int index = random.nextInt(this.tiburones.length + this.piranas.length + this.tiburonesNegros.length);
+			int index = random.nextInt(this.tiburones.length + this.piranas.length + this.tiburonesNegros.length + this.pulpos.length);
 			if (index == 0) {
 				for (int i=0;i<this.tiburones.length;i++) {
 					if (this.tiburones[i].isVivo() == false) {
@@ -156,6 +158,20 @@ public class ControlHilos implements Runnable {
 						this.piranas[i].colocarPalabra();
 						this.piranas[i].resetMatando();
 						return this.piranas[i];
+					}
+				}
+				
+			} else if (index == 2) {
+				for (int i=0;i<this.pulpos.length;i++) {
+					if (this.pulpos[i].isVivo() == false) {
+						this.pulpos[i].getImageView().setLayoutX(x);
+						this.pulpos[i].getImageView().setLayoutY(y);
+						this.pulpos[i].getLabel().setLayoutX(x + 50);
+						this.pulpos[i].getLabel().setLayoutY(y + 30);
+						this.pulpos[i].getLabel().requestFocus();
+						this.pulpos[i].colocarPalabra();
+						this.pulpos[i].resetMatando();
+						return this.pulpos[i];
 					}
 				}
 			} else {
@@ -235,6 +251,9 @@ public class ControlHilos implements Runnable {
 		
 		OrganizadorJuego.tiburonNegro1.setVivo(false);
 		OrganizadorJuego.tiburonNegro2.setVivo(false);
+		
+		OrganizadorJuego.pulpo1.setVivo(false);
+		OrganizadorJuego.pulpo2.setVivo(false);
 		
 	}
 

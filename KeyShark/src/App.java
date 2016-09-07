@@ -30,7 +30,7 @@ public class App extends Application{
 	
 	private Image icon = new Image(getClass().getResourceAsStream("ic.png"));
 	
-	//Comentario de Stefany Lindao
+	//Comentario de Stefany
 	@Override
 	/**
 	 * Método que inicia el escenario con el PaneOrganizer del menú del juego.

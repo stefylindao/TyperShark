@@ -49,6 +49,8 @@ public class OrganizadorJuego {
 	public static Tiburon tiburon1;
 	public static Tiburon tiburon2;
 	public static Tiburon tiburon3;
+	public static Pulpo pulpo1;
+	public static Pulpo pulpo2;
 	public static Pirana pirana1;
 	public static Pirana pirana2;
 	public static Pirana pirana3;
@@ -80,6 +82,10 @@ public class OrganizadorJuego {
 		tiburonNegro1 = new TiburonNegro(1000.0,90.0);
 		tiburonNegro2 = new TiburonNegro(1000.0,90.0);
 		TiburonNegro[] tiburonesNegros = {tiburonNegro1, tiburonNegro2};
+		
+		pulpo1 = new Pulpo(1000.0,90.0);
+		pulpo2 = new Pulpo(1000.0,90.0);
+		Pulpo[] pulpos = {pulpo1, pulpo2};
 		
 		botonSalir = new Button("Salir");
 		botonSalir.setOnAction(handler);
@@ -133,7 +139,7 @@ public class OrganizadorJuego {
 		fondo.setFitWidth(1000);
 		fondo.setFitHeight(800);
 
-		Thread hiloJuego = new Thread(new ControlHilos(buzo, tiburones, piranas, tiburonesNegros));
+		Thread hiloJuego = new Thread(new ControlHilos(buzo, tiburones, piranas, tiburonesNegros, pulpos));
 
 		hiloJuego.start();
 		
@@ -155,6 +161,9 @@ public class OrganizadorJuego {
 				pirana2.getImageView(), pirana2.getLabel(),
 				pirana3.getImageView(), pirana3.getLabel(),
 				pirana4.getImageView(), pirana4.getLabel(), 
+				
+				pulpo1.getImageView(), pulpo1.getLabel(),
+				pulpo2.getImageView(), pulpo2.getLabel(),
 				
 				tiburonNegro1.getImageView(), tiburonNegro1.getLabel(),
 				tiburonNegro2.getImageView(), tiburonNegro2.getLabel());
@@ -188,6 +197,9 @@ public class OrganizadorJuego {
 					pirana3.muerteInmediata();
 					pirana4.muerteInmediata();
 					
+					pulpo1.muerteInmediata();
+					pulpo2.muerteInmediata();
+					
 					tiburonNegro1.muerteInmediata();
 					tiburonNegro2.muerteInmediata();
 					
@@ -202,6 +214,9 @@ public class OrganizadorJuego {
 					pirana2.procesar(event.getCharacter());
 					pirana3.procesar(event.getCharacter());
 					pirana4.procesar(event.getCharacter());
+					
+					pulpo1.procesar(event.getCharacter());
+					pulpo2.procesar(event.getCharacter());
 					
 					tiburonNegro1.procesar(event.getCharacter());
 					tiburonNegro2.procesar(event.getCharacter());
